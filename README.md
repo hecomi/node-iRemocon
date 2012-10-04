@@ -7,9 +7,9 @@ iRemocon を操作する Node.js 用モジュールです。
 
 インストール
 --------------
-$ git clone git://github.com/hecomi/node-iRemocon
-$ cd node-iRemocon
-$ npm install
+	$ git clone git://github.com/hecomi/node-iRemocon
+	$ cd node-iRemocon
+	$ npm install
 
 使い方
 --------------
@@ -20,15 +20,15 @@ $ npm install
 	;
 
 iRemocon のコマンドはひと通り揃えてあります。
-各コマンドの詳細については公式サイトの http://i-remocon.com/hp/documents/IRM01L_command_ref.pdf を御覧ください。
+各コマンドの詳細については公式サイトのマニュアル（http://i-remocon.com/hp/documents/IRM01L_command_ref.pdf）を御覧ください。
 
 	// すべてのメソッドにはコールバックを指定することができます
 	iremocon.au(function(err, msg) {
 		if (!err) console.log('DETECTED!');
 	})
 
+コールバック時のエラーは code, error, detail の３つの情報を保持しています。
 
-	// エラーは code, error, detail を含んでいます。
 	// code   : エラーコード（999 は iRemocon で定義されていないエラー）
 	// error  : エラーの概略
 	// detail : エラーの詳細
@@ -42,10 +42,9 @@ iRemocon のコマンドはひと通り揃えてあります。
 		// e.g. ic;ok
 	});
 
+コールバックは省略することもできます。
 
-	// コールバックは省略することもできます
 	iremocon.is(1);
-
 
 また、ネットワーク内の iRemocon を見つけることもできます。
 
