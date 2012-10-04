@@ -1,0 +1,8 @@
+{
+	"name"    : "iRemocon",
+	"version" : "0.0.1",
+	"main"    : "iRemocon",
+	"dependencies" : {
+		"async" : "*"
+	}
+}
