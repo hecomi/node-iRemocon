@@ -1,3 +1,10 @@
+/*
+ * title   : node-iRemocon
+ * date    : 2012/10/05
+ * version : 0.0.1
+ * author  : hecomi
+ */
+
 var net   = require('net')
   , async = require('async')
 ;
@@ -14,7 +21,7 @@ var iRemocon = function(ip) {
 }
 
 // iRemocon を与えられた IP の中から検索する
-iRemocon.searchDevice = function(ips, callback) {
+iRemocon.search = function(ips, callback) {
 	var iremocon = new iRemocon();
 	iremocon.setTimeout(1000);
 	async.detectSeries(ips, function(ip, detected) {
@@ -92,9 +99,13 @@ iRemocon.prototype = {
 			res = res.replace(/\n.*/, '');
 
 			// エラーコードを調べてエラーを返す
-			if ( res.match(/err;([^\s]*?)\r/) ) {
+			if ( res.match(/err;([^/s]*?)\r/) ) {
 				if (typeof(callback) === 'function') {
-					callback(this.errTable[command][RegExp.$1], res);
+					var errorCode   = RegExp.$1
+					  , commandName = command.replace(/;.*?$/, '')
+					;
+					console.log(errorCode, commandName);
+					callback(this.errTable[commandName][errorCode], res);
 				}
 			} else {
 				if (typeof(callback) === 'function') {
