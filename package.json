@@ -1,8 +1,17 @@
 {
-	"name"    : "iRemocon",
-	"version" : "0.0.1",
-	"main"    : "iRemocon",
-	"dependencies" : {
-		"async" : "*"
-	}
+  "name": "iremocon",
+  "version": "0.0.1",
+  "author": {
+    "name": "hecomi",
+    "email": "info@hecomi.com"
+  },
+  "main": "iRemocon",
+  "dependencies": {
+    "async": "*"
+  },
+  "readme": "iRemocon client library for Node.js\n=============\n\nこれは何？\n--------------\niRemocon を操作する Node.js 用モジュールです。\n\nインストール\n--------------\n\t$ npm install iremocon\n\n使い方\n--------------\nまず、以下のようにモジュールを読み込みます。\n\n\tvar iRemocon = new require('iRemocon')\n\t  , iremocon = new iRemocon('192.168.0.1') // iRemocon の IP を指定\n\t;\n\niRemocon のコマンドはひと通り揃えてあります。\n各コマンドの詳細については公式サイトのマニュアル（http://i-remocon.com/hp/documents/IRM01L_command_ref.pdf）を御覧ください。\n\n\t// すべてのメソッドにはコールバックを指定することができます\n\tiremocon.au(function(err, msg) {\n\t\tif (!err) console.log('DETECTED!');\n\t})\n\nコールバック時のエラーは code, error, detail の３つの情報を保持しています。\n\n\t// code   : エラーコード（999 は iRemocon で定義されていないエラー）\n\t// error  : エラーの概略\n\t// detail : エラーの詳細\n\tiremocon.ic(1 /* 1〜1500 の ID */, function(err, msg) {\n\t\tif (err) {\n\t\t\tconsole.error(err.code, err.error, err.detail);\n\t\t\t// e.g. 003 受信エラー 不正なリモコンデータを受信した\n\t\t\treturn;\n\t\t}\n\t\tconsole.log(msg);\n\t\t// e.g. ic;ok\n\t});\n\nコールバックは省略することもできます。\n\n\tiremocon.is(1);\n\nまた、ネットワーク内の iRemocon を見つけることもできます。\n\n\tvar iRemocon = new require('iRemocon');\n\n\tvar ips = []\n\tfor (var i = 1; i < 255; ++i) {\n\t\tips.push('192.168.0.' + i);\n\t}\n\tiRemocon.search(ips, function(ip) {\n\t\tvar iremocon = new iRemocon(ip);\n\t\tiremocon.is(10);\n\t})\n\n詳細\n--------------\nその他詳細は Twitter:@hecomi へご質問いただくか、http://d.hatena.ne.jp/hecomi/ をご参照下さい。\n\n",
+  "readmeFilename": "README.md",
+  "_id": "iremocon@0.0.1",
+  "description": "iRemocon client library for Node.js",
+  "_from": "iremocon"
 }

@@ -1,4 +1,4 @@
-node-iRemocon
+iRemocon client library for Node.js
 =============
 
 これは何？
@@ -7,9 +7,7 @@ iRemocon を操作する Node.js 用モジュールです。
 
 インストール
 --------------
-	$ git clone git://github.com/hecomi/node-iRemocon
-	$ cd node-iRemocon
-	$ npm install
+	$ npm install iremocon
 
 使い方
 --------------
