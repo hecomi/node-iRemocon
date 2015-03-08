@@ -188,6 +188,24 @@ iRemocon.prototype = {
 	vr : function(callback) {
 		this.send('vr', callback);
 	},
+	// 照度センサーの値の取得
+	li : function(callback) {
+		this.send('li', callback);
+	},
+	// 湿度センサーの値の取得
+	hu : function(callback) {
+		this.send('hu', callback);
+	},
+	// 温度センサーの値の取得
+	te : function(callback) {
+		this.send('te', callback);
+	},
+	// 照度・湿度・照度センサーの値の取得
+	se : function(callback) {
+		this.send('se', callback);
+	},
+
+
 	// エラー時の情報
 	errTable : {
 		'au' : {
@@ -227,6 +245,21 @@ iRemocon.prototype = {
 				code   : '020',
 				error  : 'タイムアウトエラー',
 				detail : 'コマンド入力が５秒以上途切れた'
+			},
+			'051' : {
+				code   : '051',
+				error  : '内部システムタイムアウトエラー',
+				detail : ''
+			},
+			'052' : {
+				code   : '052',
+				error  : '内部システム応答データなしエラー',
+				detail : ''
+			},
+			'053' : {
+				code   : '053',
+				error  : '内部システム応答データ不正エラー',
+				detail : ''
 			}
 		},
 		'ic' : {
@@ -254,6 +287,21 @@ iRemocon.prototype = {
 				code   : '020',
 				error  : 'タイムアウトエラー',
 				detail : 'コマンド入力が５秒以上途切れた'
+			},
+			'051' : {
+				code   : '051',
+				error  : '内部システムタイムアウトエラー',
+				detail : ''
+			},
+			'052' : {
+				code   : '052',
+				error  : '内部システム応答データなしエラー',
+				detail : ''
+			},
+			'053' : {
+				code   : '053',
+				error  : '内部システム応答データ不正エラー',
+				detail : ''
 			}
 		},
 		'cc' : {
@@ -271,6 +319,21 @@ iRemocon.prototype = {
 				code   : '020',
 				error  : 'タイムアウトエラー',
 				detail : 'コマンド入力が５秒以上途切れた'
+			},
+			'051' : {
+				code   : '051',
+				error  : '内部システムタイムアウトエラー',
+				detail : ''
+			},
+			'052' : {
+				code   : '052',
+				error  : '内部システム応答データなしエラー',
+				detail : ''
+			},
+			'053' : {
+				code   : '053',
+				error  : '内部システム応答データ不正エラー',
+				detail : ''
 			}
 		},
 		'tm' : {
@@ -313,6 +376,21 @@ iRemocon.prototype = {
 				code   : '020',
 				error  : 'タイムアウトエラー',
 				detail : 'コマンド入力が５秒以上途切れた'
+			},
+			'051' : {
+				code   : '051',
+				error  : '内部システムタイムアウトエラー',
+				detail : ''
+			},
+			'052' : {
+				code   : '052',
+				error  : '内部システム応答データなしエラー',
+				detail : ''
+			},
+			'053' : {
+				code   : '053',
+				error  : '内部システム応答データ不正エラー',
+				detail : ''
 			}
 		},
 		'tl' : {
@@ -393,6 +471,134 @@ iRemocon.prototype = {
 				code   : '020',
 				error  : 'タイムアウトエラー',
 				detail : 'コマンド入力が５秒以上途切れた'
+			}
+		},
+		'li' : {
+			'001' : {
+				code   : '001',
+				error  : 'センサーの値が不正',
+				detail : ''
+			},
+			'010' : {
+				code   : '010',
+				error  : 'フォーマットエラー',
+				detail : 'コマンドの書式が不正'
+			},
+			'020' : {
+				code   : '020',
+				error  : 'タイムアウトエラー',
+				detail : 'コマンド入力が５秒以上途切れた'
+			},
+			'051' : {
+				code   : '051',
+				error  : '内部システムタイムアウトエラー',
+				detail : ''
+			},
+			'052' : {
+				code   : '052',
+				error  : '内部システム応答データなしエラー',
+				detail : ''
+			},
+			'053' : {
+				code   : '053',
+				error  : '内部システム応答データ不正エラー',
+				detail : ''
+			}
+		},
+		'hu' : {
+			'001' : {
+				code   : '001',
+				error  : 'センサーの値が不正',
+				detail : ''
+			},
+			'010' : {
+				code   : '010',
+				error  : 'フォーマットエラー',
+				detail : 'コマンドの書式が不正'
+			},
+			'020' : {
+				code   : '020',
+				error  : 'タイムアウトエラー',
+				detail : 'コマンド入力が５秒以上途切れた'
+			},
+			'051' : {
+				code   : '051',
+				error  : '内部システムタイムアウトエラー',
+				detail : ''
+			},
+			'052' : {
+				code   : '052',
+				error  : '内部システム応答データなしエラー',
+				detail : ''
+			},
+			'053' : {
+				code   : '053',
+				error  : '内部システム応答データ不正エラー',
+				detail : ''
+			}
+		},
+		'te' : {
+			'001' : {
+				code   : '001',
+				error  : 'センサーの値が不正',
+				detail : ''
+			},
+			'010' : {
+				code   : '010',
+				error  : 'フォーマットエラー',
+				detail : 'コマンドの書式が不正'
+			},
+			'020' : {
+				code   : '020',
+				error  : 'タイムアウトエラー',
+				detail : 'コマンド入力が５秒以上途切れた'
+			},
+			'051' : {
+				code   : '051',
+				error  : '内部システムタイムアウトエラー',
+				detail : ''
+			},
+			'052' : {
+				code   : '052',
+				error  : '内部システム応答データなしエラー',
+				detail : ''
+			},
+			'053' : {
+				code   : '053',
+				error  : '内部システム応答データ不正エラー',
+				detail : ''
+			}
+		},
+		'se' : {
+			'001' : {
+				code   : '001',
+				error  : 'センサーの値が不正',
+				detail : ''
+			},
+			'010' : {
+				code   : '010',
+				error  : 'フォーマットエラー',
+				detail : 'コマンドの書式が不正'
+			},
+			'020' : {
+				code   : '020',
+				error  : 'タイムアウトエラー',
+				detail : 'コマンド入力が５秒以上途切れた'
+			},
+			'051' : {
+				code   : '051',
+				error  : '内部システムタイムアウトエラー',
+				detail : ''
+			},
+			'052' : {
+				code   : '052',
+				error  : '内部システム応答データなしエラー',
+				detail : ''
+			},
+			'053' : {
+				code   : '053',
+				error  : '内部システム応答データ不正エラー',
+				detail : ''
 			}
 		}
 	}

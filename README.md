@@ -18,7 +18,7 @@ iRemocon を操作する Node.js 用モジュールです。
 	;
 
 iRemocon のコマンドはひと通り揃えてあります。
-各コマンドの詳細については公式サイトのマニュアル（http://i-remocon.com/hp/documents/IRM01L_command_ref.pdf）を御覧ください。
+各コマンドの詳細については公式サイトの開発者向け情報（http://i-remocon.com/development/）を御覧ください。
 
 	// すべてのメソッドにはコールバックを指定することができます
 	iremocon.au(function(err, msg) {
